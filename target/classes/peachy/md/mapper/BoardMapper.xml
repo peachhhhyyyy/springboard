@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="peachy.md.mapper.BoardMapper">
+	<select id="list" resultType="Board">
+	  select * from BOARD order by SEQ desc
+	</select>
+	<insert id="insert" parameterType="Board">
+	 insert into BOARD values(BOARD_SEQ.nextval, #{writer}, #{email}, #{subject}, #{content}, SYSDATE)
+	</insert>
+	<delete id="delete" parameterType="long">
+	 delete from BOARD where SEQ=#{seq}
+	</delete>
+	<select id="content" resultType="Board" parameterType="long">
+	 select * from BOARD where SEQ=#{seq}
+	</select>
+	<select id="update" resultType="Board" parameterType="long">
+	 select * from BOARD where SEQ=#{seq}
+	</select>
+	<update id="updateOk" parameterType="Board">
+	 update BOARD set WRITER=#{writer}, EMAIL=#{email}, SUBJECT=#{subject}, CONTENT=#{content}, RDATE=SYSDATE where SEQ=#{seq}
+	</update>
+	<select id="selectPerPage" resultType="Board" parameterType="BoardVo">
+		<![CDATA[
+			select * from (select ROWNUM rnum, aa.* from (select * from BOARD order by SEQ desc) aa) where rnum>#{startRow} and rnum<=#{endRow}
+		]]>
+	</select>
+	<select id="selectCount" resultType="long">
+	 select count(*) from BOARD
+	</select>
+</mapper>

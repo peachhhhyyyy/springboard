@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="peachy.md.mapper.AddressMapper2">
+	<select id="list" resultType="Address">
+	    select * from ADDRESS order by NAME
+	</select>
+	
+	<insert id="insert" parameterType="Address">
+		insert into ADDRESS values(ADDRESS_SEQ.nextval, #{name}, #{addr}, SYSDATE)
+	</insert>
+	
+	<delete id="delete" parameterType="long">
+	    delete from ADDRESS where SEQ=#{seq}
+    </delete>
+</mapper>
