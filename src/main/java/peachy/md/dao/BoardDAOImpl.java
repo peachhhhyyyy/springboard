@@ -37,7 +37,10 @@ public class BoardDAOImpl implements BoardDAO {
 				String subject = rs.getString(4);
 				String content = rs.getString(5);
 				java.sql.Date rdate = rs.getDate(6);
-				dtos.add(new Board(seq, writer, email, subject, content, rdate));
+				String fname = rs.getString(7);
+				String ofname = rs.getString(8);
+				Long fsize = rs.getLong(9);
+				dtos.add(new Board(seq, writer, email, subject, content, rdate, fname, ofname, fsize));
 			}
 		}catch(SQLException se) {
 			log.info("list() se: " + se);
@@ -93,8 +96,11 @@ public class BoardDAOImpl implements BoardDAO {
 				 String subject = rs.getString(4);
 				 String content = rs.getString(5);
 				 java.sql.Date rdate = rs.getDate(6);
+				 String fname = rs.getString(7);
+				 String ofname = rs.getString(8);
+				 long fsize = rs.getLong(9);
 
-				 board = new Board(seq, writer, email, subject, content, rdate);
+				 board = new Board(seq, writer, email, subject, content, rdate, fname, ofname, fsize);
 			}
 		 }catch(SQLException se) {
 			 log.info("list() se: " + se);
@@ -147,8 +153,11 @@ public class BoardDAOImpl implements BoardDAO {
 				 String subject = rs.getString(4);
 				 String content = rs.getString(5);
 				 java.sql.Date rdate = rs.getDate(6);
+				 String fname = rs.getString(7);
+				 String ofname = rs.getString(8);
+				 long fsize = rs.getLong(9); 
 
-				 board = new Board(seq, writer, email, subject, content, rdate);
+				 board = new Board(seq, writer, email, subject, content, rdate, fname, ofname, fsize);
 			}
 		 }catch(SQLException se) {
 			 log.info("update() se: " + se);

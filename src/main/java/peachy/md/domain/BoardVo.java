@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BoardVo {
+	String catgo;
 	String keyword;
 	
 	private int cp;

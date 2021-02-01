@@ -7,7 +7,7 @@
 	  select * from BOARD order by SEQ desc
 	</select>
 	<insert id="insert" parameterType="Board">
-	 insert into BOARD values(BOARD_SEQ.nextval, #{writer}, #{email}, #{subject}, #{content}, SYSDATE)
+	 insert into BOARD values(BOARD_SEQ.nextval, #{writer}, #{email}, #{subject}, #{content}, SYSDATE, #{fname}, #{ofname}, #{fsize})
 	</insert>
 	<delete id="delete" parameterType="long">
 	 delete from BOARD where SEQ=#{seq}
@@ -21,12 +21,26 @@
 	<update id="updateOk" parameterType="Board">
 	 update BOARD set WRITER=#{writer}, EMAIL=#{email}, SUBJECT=#{subject}, CONTENT=#{content}, RDATE=SYSDATE where SEQ=#{seq}
 	</update>
-	<select id="selectPerPage" resultType="Board" parameterType="BoardVo">
-		<![CDATA[
-			select * from (select ROWNUM rnum, aa.* from (select * from BOARD order by SEQ desc) aa) where rnum>#{startRow} and rnum<=#{endRow}
-		]]>
+	<select id="selectPerPage" resultType="Board" parameterType="BoardVo" >
+	 <![CDATA[ 
+	select * from (select ROWNUM rnum, aa.* from (select * from BOARD order by SEQ desc) aa) 
+	  where rnum>#{startRow} and rnum<=#{endRow}
+	]]>
+	</select>
+	<select id="selectPerCatgo" resultType="Board" parameterType="BoardVo" >
+	   <![CDATA[ 
+	   select * from (select ROWNUM rnum, aa.* 
+	   from (select * from BOARD where ${catgo} like '%'||#{keyword}||'%' order by ${catgo}) aa) 
+	     where rnum>#{startRow} and rnum<=#{endRow}
+	   ]]>
+	</select>
+	<select id="selectBySeq" parameterType="long" resultType="Board">
+	select * from BOARD where SEQ=#{seq}
 	</select>
 	<select id="selectCount" resultType="long">
-	 select count(*) from BOARD
+	   select count(SEQ) from BOARD
+	</select>
+	<select id="selectCountByCatgo" resultType="long" parameterType="BoardVo">
+	   select count(SEQ) from BOARD where ${catgo} like '%'||#{keyword}||'%'
 	</select>
 </mapper>

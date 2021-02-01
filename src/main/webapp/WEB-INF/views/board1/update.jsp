@@ -59,6 +59,16 @@
 	<td align='center'>CONTENT</td>
 	<td><textarea id='ta' name='content' rows='15' cols='70'>${update.content}</textarea></td>
 </tr>
+
+<tr>
+	<td align='center'>ATTACHMENT</td>
+	<td>
+		<div>
+			<input type='file' name='file'>
+		</div>
+	</td>
+</tr>
+
 <tr>
 	 <td colspan='2' align='center'>
 		<input type='submit' value='수정'>

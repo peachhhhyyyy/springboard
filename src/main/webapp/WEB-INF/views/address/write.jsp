@@ -17,7 +17,7 @@
 			}
 			a { text-decoration:none }
 		</style>
-		<script src="/resources/js/trim.js"></script>
+		<script src="/js/trim.js"></script>
 		<script language="javascript"> 
 		    function check(){
 				var nameval = f.name.value;

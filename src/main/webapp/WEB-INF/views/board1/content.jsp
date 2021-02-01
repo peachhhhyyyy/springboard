@@ -38,6 +38,18 @@
    <td align='center'>Contents</td>
    <td>${content.content}</td>
    </tr>
+   <tr>
+   <td align='center'>File Name</td>
+   <td><a href="download.do?fname=${content.fname}">${content.fname}</a></td>
+   </tr>
+   <tr>
+   <td align='center'>Original File Name</td>
+   <td>${content.ofname}</td>
+   </tr>
+   <tr>
+   <td align='center'>File Size</td>
+   <td>${content.fsize}</td>
+   </tr>
    </table>
    
    <hr width='600' size='2' color='gray' noshade>

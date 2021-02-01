@@ -37,7 +37,7 @@
 	   <hr width="600" size="2" color="gray" noshade>
 	</center>
 
-	<form name="input" method="post" action="write.do">
+	<form name="input" action="write.do"  method="post" enctype="multipart/form-data">
 	   <table border="0" width="600" align="center"  cellpadding="3" cellspacing="1" bordercolor="gray">
 	      <tr>
 		     <td width="30%" align="center">WRITER</td>
@@ -54,6 +54,14 @@
 		  <tr>
 		     <td align="center">CONTENT</td>
 			 <td><textarea  name="content" rows="15" cols="70"></textarea></td>
+		  </tr>
+		  <tr>
+		  	<td align="center">ATTATCHMENT</td>
+		  	<td>
+			  	<div>
+				   <input type='file' name='file'>
+				 </div>
+			 </td>
 		  </tr>
 		  <tr>
 		     <td colspan="2" align="center">

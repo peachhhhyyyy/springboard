@@ -15,7 +15,9 @@
 				<a href="board/list.do">게시판 (with JDBC 미션)</a><br>
 				<a href="address1/list.do">주소록1 (with myBatis)</a><br>
 				<a href="address2/list.do">주소록2 (with myBatis - mapper 구현내용변경)</a><br>
-				<a href="board1/list.do">게시판1 (with myBatis)</a>
+				<a href="board1/list.do">게시판1 (with myBatis)</a><br>
+				<a href="file/form.do">파일폼</a><br>
+           	    <a href="file/form_mt.do">파일폼 (멀티)</a>
 			</p>
 		</div>
 	</body>

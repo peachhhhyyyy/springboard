@@ -34,7 +34,7 @@
 
   <c:if test="${empty listResult.list}">
       <tr>
-         <td align='center' colspan="5">데이터가 하나도 없음</td>
+         <td align='center' colspan="6">데이터가 하나도 없음</td>
       </tr>
    </c:if>
    <c:forEach items="${listResult.list}" var="board">
@@ -51,6 +51,15 @@
 </TABLE>
 <hr width='600' size='2' color='gray' noshade>
 <font color='gray' size='3' face='휴먼편지체'>
+
+<form action="list.do" method="get">
+   <select name="catgo">
+      <option value="writer">작성자</option>
+      <option value="subject">제목</option>
+   </select>
+   <input type="text" name="keyword" required>
+   <input type="submit" value="검색">
+</form>
 
      (총페이지수 : ${listResult.totalPageCount})
     &nbsp;&nbsp;&nbsp;
